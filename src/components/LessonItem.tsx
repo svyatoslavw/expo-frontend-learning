@@ -7,27 +7,16 @@ interface ILessonsItem {
   lesson: ILesson;
   index: number;
   color: string;
-  courseId: string;
 }
 
-const LessonItem = ({ lesson, color, index, courseId }: ILessonsItem) => {
+const LessonItem = ({ lesson, color, index }: ILessonsItem) => {
   return (
     <TouchableOpacity
       activeOpacity={0.75}
-      // onPress={() => {
-      //   router.replace({
-      //     pathname: `/lessons/${lesson.id}`,
-      //     params: {
-      //       item: JSON.stringify(lesson),
-      //       courseId: JSON.stringify(courseId),
-      //     },
-      //   });
-      // }}
       style={{
         width: '100%',
         borderColor: color,
         borderWidth: 1,
-        backgroundColor: color,
         borderRadius: SIZES.sm,
         paddingHorizontal: 10,
         paddingVertical: 15,

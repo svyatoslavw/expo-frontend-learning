@@ -51,11 +51,7 @@ export default function Home() {
           scrollEnabled={false}
           data={savedCourses.userCourses}
           renderItem={({ item }) => (
-            <SavedCourseItem
-              courseId={item.id}
-              course={item.course}
-              key={item.course.id}
-            />
+            <SavedCourseItem item={item} key={item.course.id} />
           )}
           contentContainerStyle={{
             gap: 10,

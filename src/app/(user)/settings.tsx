@@ -1,8 +1,11 @@
+import Button from '@/components/Button';
 import PageContainer from '@/components/PageContainer';
-import { useAuth } from '@clerk/clerk-expo';
+import { FONT, SIZES } from '@/constants';
+import { useAuth, useUser } from '@clerk/clerk-expo';
+import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import React from 'react';
-import { Button, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 
 const SignOut = () => {
   const { isLoaded, signOut } = useAuth();
@@ -10,22 +13,30 @@ const SignOut = () => {
     return null;
   }
   return (
-    <View>
-      <Button
-        title="Sign Out"
-        onPress={() => {
-          signOut().then(() => router.push('/'));
-        }}
-      />
-    </View>
+    <Button
+      text="Sign Out"
+      onPress={() => {
+        signOut().then(() => router.push('/'));
+      }}
+    />
   );
 };
 
 export default function Settings() {
+  const { user } = useUser();
   return (
     <PageContainer title="Settings">
-      <View>
-        <Text>Settings</Text>
+      <View style={{ alignItems: 'center' }}>
+        <Ionicons name="person-circle-outline" color="white" size={100} />
+        <Text
+          style={{
+            color: 'white',
+            fontFamily: FONT.medium,
+            fontSize: SIZES.md,
+          }}
+        >
+          {user?.primaryEmailAddress?.emailAddress}
+        </Text>
         <SignOut />
       </View>
     </PageContainer>

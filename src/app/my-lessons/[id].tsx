@@ -53,7 +53,7 @@ export default function SavedLessonsPage() {
     >
       <Stack.Screen
         options={{
-          title: item.id?.toString(),
+          title: lesson.heading?.toString(),
           headerStyle: { backgroundColor: COLORS.secondary },
           headerTitleStyle: { color: COLORS.white },
           headerShadowVisible: false,

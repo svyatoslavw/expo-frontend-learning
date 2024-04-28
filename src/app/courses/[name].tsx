@@ -145,7 +145,6 @@ export default function CoursesPage() {
           data={data.course.lessons}
           renderItem={({ item, index }) => (
             <LessonItem
-              courseId={data.course.id}
               lesson={item}
               color={data.course.color}
               index={index}

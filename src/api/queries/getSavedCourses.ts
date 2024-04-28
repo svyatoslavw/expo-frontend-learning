@@ -12,6 +12,10 @@ export const useSavedCourses = (userEmail: string) => {
         query UserCourses {
           userCourses(where: {userEmail: "${userEmail}"}) {
             id
+            courseId
+            completedLesson {
+              lessonId
+            }
             course {
                 id
                 name

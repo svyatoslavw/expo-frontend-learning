@@ -29,7 +29,7 @@ export default () => {
         }}
       />
       <Tabs.Screen
-        name="lessons"
+        name="library"
         options={{
           tabBarLabel: 'Library',
           headerShown: false,
